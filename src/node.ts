@@ -14,6 +14,7 @@ export class Node {
     controls = new Map<string, Control>();
     data: {[key: string]: unknown} = {};
     meta: {[key: string]: unknown} = {};
+    module: {[key: string]: unknown} = {};
 
     static latestId = 0;
     
