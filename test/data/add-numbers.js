@@ -6,12 +6,14 @@ export default {
             'data': {
                 'num': 2
             },
+            'module': {},
             'inputs': {},
             'outputs': {
                 'num': {
                     'connections': [{
                         'node': 3,
                         'input': 'num1',
+                        'type': 'Name',
                         'data': {}
                     }]
                 }
@@ -24,12 +26,14 @@ export default {
             'data': {
                 'num': 0
             },
+            'module': {},
             'inputs': {},
             'outputs': {
                 'num': {
                     'connections': [{
                         'node': 3,
                         'input': 'num2',
+                        'type': 'Name',
                         'data': {}
                     }]
                 }
@@ -40,11 +44,13 @@ export default {
         '3': {
             'id': 3,
             'data': {},
+            'module': {},
             'inputs': {
                 'num1': {
                     'connections': [{
                         'node': 1,
                         'output': 'num',
+                        'type': 'Name',
                         'data': {}
                     }]
                 },
@@ -52,6 +58,7 @@ export default {
                     'connections': [{
                         'node': 2,
                         'output': 'num',
+                        'type': 'Name',
                         'data': {}
                     }]
                 }

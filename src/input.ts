@@ -7,6 +7,7 @@ import { Socket } from './socket';
 export class Input extends IO {
    
     control: Control | null = null;
+    dataType: string = '';
 
     constructor(key: string, title: string, socket: Socket, multiConns: boolean = false) {
         super(key, title, socket, multiConns);
@@ -39,6 +40,7 @@ export class Input extends IO {
                 return {
                     node: c.output.node.id,
                     output: c.output.key,
+                    type: c.output.name,
                     data: c.data
                 };
             })

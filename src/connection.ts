@@ -5,12 +5,14 @@ export class Connection {
 
     output: Output;
     input: Input;
+    dataType: string = '';
     data: unknown = {};
 
-    constructor(output: Output, input: Input) {
+    constructor(output: Output, input: Input, dataType: string) {
         this.output = output;
         this.input = input;
         this.data = {};
+        this.dataType = dataType;
 
         this.input.addConnection(this);
     }

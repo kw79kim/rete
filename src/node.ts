@@ -102,6 +102,7 @@ export class Node {
         return {
             'id': this.id,
             'data': this.data,
+            'module': this.module,
             'inputs': reduceIO<InputsData>(this.inputs),
             'outputs': reduceIO<OutputsData>(this.outputs),
             'position': this.position,
@@ -115,6 +116,7 @@ export class Node {
 
         node.id = json.id;
         node.data = json.data;
+        node.module = json.module;
         node.position = [x, y];
         node.name = json.name;
         Node.latestId = Math.max(node.id, Node.latestId);

@@ -11,7 +11,7 @@
     "prepublishOnly": "npm run lint && npm run build",
     "prebuild": "npm run lint & npm test && npm run types",
     "lint": "tsc && eslint --ext .ts --ext .js src",
-    "test": "BABEL_ENV=test mocha -r ts-node/register test/**.ts",
+    "test": "mocha -r ts-node/register test/**.ts",
     "coverage": "nyc npm run test",
     "types": "tsc src/index.ts --target es5 --declaration --outDir ./types --downlevelIteration --emitDeclarationOnly"
   },

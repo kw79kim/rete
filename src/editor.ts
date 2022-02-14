@@ -58,13 +58,14 @@ export class NodeEditor extends Context<EventsTypes> {
         this.trigger('noderemoved', node);
     }
 
-    connect(output: Output, input: Input, data: unknown = {}) {
+    connect(output: Output, input: Input, dataType: string = '', data: unknown = {}) {
         if (!this.trigger('connectioncreate', { output, input })) return;
 
         try {
-            const connection = output.connectTo(input);
+            const connection = output.connectTo(input, dataType);
 
             connection.data = data;
+            connection.dataType = dataType;
             this.view.addConnection(connection);
 
             this.trigger('connectioncreated', connection);
@@ -162,6 +163,7 @@ export class NodeEditor extends Context<EventsTypes> {
                     outputJson.connections.forEach(jsonConnection => {
                         const nodeId = jsonConnection.node;
                         const data = jsonConnection.data;
+                        const dataType = jsonConnection.type;
                         const targetOutput = node.outputs.get(key);
                         const targetInput = nodes[nodeId].inputs.get(jsonConnection.input);
 
@@ -169,7 +171,7 @@ export class NodeEditor extends Context<EventsTypes> {
                             return this.trigger('error', `IO not found for node ${node.id}`);
                         }
 
-                        this.connect(targetOutput, targetInput, data);
+                        this.connect(targetOutput, targetInput, dataType, data);
                     });
                 });
 

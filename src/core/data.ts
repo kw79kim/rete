@@ -1,5 +1,6 @@
 export interface ConnectionData {
     node: number;
+    type: string;
     data: unknown;
 }
 
@@ -26,6 +27,7 @@ export interface NodeData {
     inputs: InputsData;
     outputs: OutputsData;
     data: {[key: string]: unknown};
+    module: {[key: string]: unknown};
     position: [number, number];
 }
 
